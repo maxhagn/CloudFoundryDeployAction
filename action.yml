@@ -1,0 +1,29 @@
+name: "CF Deployment Action"
+description: "Deploy SAP Applications using CF8"
+branding:
+  icon: upload-cloud
+  color: black
+inputs:
+  CF_API:
+    description: "Identity Provider API"
+    required: true
+  CF_USERNAME:
+    description: "CF Username"
+    required: true
+  CF_PASSWORD:
+    description: "CF Password"
+    required: true
+  CF_ORG:
+    description: "CF Organization"
+    required: false
+  CF_SPACE:
+    description: "CF Space"
+    required: false
+  CF_COMMAND:
+    description: "Command"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.cf_command }}
